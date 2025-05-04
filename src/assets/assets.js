@@ -180,23 +180,23 @@ export const footerLinks = [
 export const features = [
   {
     icon: delivery_truck_icon,
-    title: "Fastest Delivery",
-    description: "Groceries delivered in under 30 minutes.",
+    title: "Express Shipping",
+    description: "delivering to your doorstep within 3 days.",
   },
   {
     icon: leaf_icon,
-    title: "Freshness Guaranteed",
-    description: "Fresh produce straight from the source.",
+    title: "Extended Warranty",
+    description: "All products come with manufacturer warranty",
   },
   {
     icon: coin_icon,
-    title: "Affordable Prices",
-    description: "Quality groceries at unbeatable prices.",
+    title: "Price Match Guarantee",
+    description: "We'll match the price and give 5% extra off.",
   },
   {
     icon: trust_icon,
-    title: "Trusted by Thousands",
-    description: "Loved by 10,000+ happy customers.",
+    title: "24/7 Tech Support",
+    description: "Our technicians are available to help you.",
   },
 ];
 
@@ -207,7 +207,7 @@ export const dummyProducts = [
     name: "Potato 500g",
     category: "Vegetables",
     price: 25,
-    rating:2,
+    rating:3,
     offerPrice: 20,
     image: [potato_image_1, potato_image_2, potato_image_3, potato_image_4],
     description: [
@@ -224,6 +224,7 @@ export const dummyProducts = [
     name: "Tomato 1 kg",
     category: "Vegetables",
     price: 40,
+    rating:4,
     offerPrice: 35,
     image: [tomato_image],
     description: [
@@ -241,6 +242,7 @@ export const dummyProducts = [
     name: "Carrot 500g",
     category: "Vegetables",
     price: 30,
+    rating:5,
     offerPrice: 28,
     image: [carrot_image],
     description: [
@@ -257,6 +259,7 @@ export const dummyProducts = [
     name: "Spinach 500g",
     category: "Vegetables",
     price: 18,
+    rating:1,
     offerPrice: 15,
     image: [spinach_image_1],
     description: [
@@ -273,6 +276,7 @@ export const dummyProducts = [
     name: "Onion 500g",
     category: "Vegetables",
     price: 22,
+    rating:5,
     offerPrice: 19,
     image: [onion_image_1],
     description: [
@@ -291,6 +295,7 @@ export const dummyProducts = [
     name: "Apple 1 kg",
     category: "Fruits",
     price: 120,
+    rating:3,
     offerPrice: 110,
     image: [apple_image],
     description: [
@@ -309,6 +314,7 @@ export const dummyProducts = [
     name: "Orange 1 kg",
     category: "Fruits",
     price: 80,
+    rating:4,
     offerPrice: 75,
     image: [orange_image],
     description: [
@@ -325,6 +331,7 @@ export const dummyProducts = [
     name: "Banana 1 kg",
     category: "Fruits",
     price: 50,
+    rating:5,
     offerPrice: 45,
     image: [banana_image_1],
     description: [
@@ -342,6 +349,7 @@ export const dummyProducts = [
     category: "Fruits",
 
     price: 150,
+    rating:4,
     offerPrice: 140,
     image: [mango_image_1],
     description: [
@@ -358,6 +366,7 @@ export const dummyProducts = [
     name: "Grapes 500g",
     category: "Fruits",
     price: 70,
+    rating:2,
     offerPrice: 65,
     image: [grapes_image_1],
     description: [
@@ -376,6 +385,7 @@ export const dummyProducts = [
     name: "Amul Milk 1L",
     category: "Dairy",
     price: 60,
+    rating:5,
     offerPrice: 55,
     image: [amul_milk_image],
     description: [
@@ -393,6 +403,7 @@ export const dummyProducts = [
     name: "Paneer 200g",
     category: "Dairy",
     price: 90,
+    rating:3,
     offerPrice: 85,
     image: [paneer_image],
     description: [
@@ -409,6 +420,7 @@ export const dummyProducts = [
     name: "Eggs 12 pcs",
     category: "Dairy",
     price: 90,
+    rating:5,
     offerPrice: 85,
     image: [eggs_image],
     description: [
@@ -425,6 +437,7 @@ export const dummyProducts = [
     name: "Paneer 200g",
     category: "Dairy",
     price: 90,
+    rating:5,
     offerPrice: 85,
     image: [paneer_image_2],
     description: [
@@ -441,6 +454,7 @@ export const dummyProducts = [
     name: "Cheese 200g",
     category: "Dairy",
     price: 140,
+    rating:5,
     offerPrice: 130,
     image: [cheese_image],
     description: [
@@ -459,6 +473,7 @@ export const dummyProducts = [
     name: "Coca-Cola 1.5L",
     category: "Drinks",
     price: 80,
+    rating:5,
     offerPrice: 75,
     image: [coca_cola_image],
     description: [
@@ -475,6 +490,7 @@ export const dummyProducts = [
     name: "Pepsi 1.5L",
     category: "Drinks",
     price: 78,
+    rating:5,
     offerPrice: 73,
     image: [pepsi_image],
     description: [
@@ -491,6 +507,7 @@ export const dummyProducts = [
     name: "Sprite 1.5L",
     category: "Drinks",
     price: 79,
+    rating:5,
     offerPrice: 74,
     image: [sprite_image_1],
     description: [
@@ -507,6 +524,7 @@ export const dummyProducts = [
     name: "Fanta 1.5L",
     category: "Drinks",
     price: 77,
+    rating:5,
     offerPrice: 72,
     image: [fanta_image_1],
     description: [
@@ -523,6 +541,7 @@ export const dummyProducts = [
     name: "7 Up 1.5L",
     category: "Drinks",
     price: 76,
+    rating:5,
     offerPrice: 71,
     image: [seven_up_image_1],
     description: [
@@ -541,6 +560,7 @@ export const dummyProducts = [
     name: "Basmati Rice 5kg",
     category: "Grains",
     price: 550,
+    rating:5,
     offerPrice: 520,
     image: [basmati_rice_image],
     description: [
@@ -557,6 +577,7 @@ export const dummyProducts = [
     name: "Wheat Flour 5kg",
     category: "Grains",
     price: 250,
+    rating:5,
     offerPrice: 230,
     image: [wheat_flour_image],
     description: [
@@ -573,6 +594,7 @@ export const dummyProducts = [
     name: "Organic Quinoa 500g",
     category: "Grains",
     price: 450,
+    rating:5,
     offerPrice: 420,
     image: [quinoa_image],
     description: [
@@ -589,6 +611,7 @@ export const dummyProducts = [
     name: "Brown Rice 1kg",
     category: "Grains",
     price: 120,
+    rating:5,
     offerPrice: 110,
     image: [brown_rice_image],
     description: [
@@ -605,6 +628,7 @@ export const dummyProducts = [
     name: "Barley 1kg",
     category: "Grains",
     price: 150,
+    rating:5,
     offerPrice: 140,
     image: [barley_image],
     description: [
@@ -622,6 +646,7 @@ export const dummyProducts = [
     _id: "bk01a24z",
     name: "Brown Bread 400g",
     category: "Bakery",
+    rating:5,
     price: 40,
     offerPrice: 35,
     image: [brown_bread_image],
@@ -639,6 +664,7 @@ export const dummyProducts = [
     name: "Butter Croissant 100g",
     category: "Bakery",
     price: 50,
+    rating:5,
     offerPrice: 45,
     image: [butter_croissant_image],
     description: [
@@ -655,6 +681,7 @@ export const dummyProducts = [
     name: "Chocolate Cake 500g",
     category: "Bakery",
     price: 350,
+    rating:5,
     offerPrice: 325,
     image: [chocolate_cake_image],
     description: [
@@ -671,6 +698,7 @@ export const dummyProducts = [
     name: "Whole Bread 400g",
     category: "Bakery",
     price: 45,
+    rating:5,
     offerPrice: 40,
     image: [whole_wheat_bread_image],
     description: [
@@ -687,6 +715,7 @@ export const dummyProducts = [
     name: "Vanilla Muffins 6 pcs",
     category: "Bakery",
     price: 100,
+    rating:5,
     offerPrice: 90,
     image: [vanilla_muffins_image],
     description: [
@@ -706,6 +735,7 @@ export const dummyProducts = [
     category: "Instant",
 
     price: 55,
+    rating:5,
     offerPrice: 50,
     image: [maggi_image],
     description: [
@@ -722,6 +752,7 @@ export const dummyProducts = [
     name: "Top Ramen 270g",
     category: "Instant",
     price: 45,
+    rating:5,
     offerPrice: 40,
     image: [top_ramen_image],
     description: [
@@ -738,6 +769,7 @@ export const dummyProducts = [
     name: "Knorr Cup Soup 70g",
     category: "Instant",
     price: 35,
+    rating:5,
     offerPrice: 30,
     image: [knorr_soup_image],
     description: [
@@ -754,6 +786,7 @@ export const dummyProducts = [
     name: "Yippee Noodles 260g",
     category: "Instant",
     price: 50,
+    rating: 4,
     offerPrice: 45,
     image: [yippee_image],
     description: [
@@ -770,6 +803,7 @@ export const dummyProducts = [
     name: "Oats Noodles 72g",
     category: "Instant",
     price: 40,
+    rating:5,
     offerPrice: 35,
     image: [maggi_oats_image],
     description: [
