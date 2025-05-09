@@ -7,3 +7,7 @@
     --color-primary: #ff7f00;
     --color-primary-dull: #c66205;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
