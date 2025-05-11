@@ -17,6 +17,7 @@ import AdminLayout from "./pages/admin/AdminLayout.jsx";
 import AddProduct from "./pages/admin/AddProduct.jsx";
 import ProductList from "./pages/admin/ProductList.jsx";
 import Orders from "./pages/admin/Orders.jsx";
+import Contact from "./pages/Contact.jsx";
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<AllProducts />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path='/products/:category' element={<ProductCategory />} />
                     <Route path='/products/:category/:id' element={<ProductDetails />} />
                     <Route path="/cart" element={<Cart />} />
