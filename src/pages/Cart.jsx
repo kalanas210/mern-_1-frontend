@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useAppContext} from "../context/AppContext.jsx";
-import {assets, dummyAddress} from "../assets/assets.js";
+import {assets} from "../assets/assets.js";
+import toast from "react-hot-toast";
 
 const Cart = () => {
 
     const [showAddress, setShowAddress] = useState(false)
-    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItems,navigate,getCartAmount} = useAppContext();
+    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItems,navigate,getCartAmount,axios,user,setCartItems} = useAppContext();
     const [cartArray,setCartArray] = useState([]);
-    const [addresses,setAddresses] = useState(dummyAddress);
-    const [selectedAddress, setSelectedAddress] = useState(dummyAddress[0]);
+    const [addresses,setAddresses] = useState([]);
+    const [selectedAddress, setSelectedAddress] = useState(null);
     const [paymentOption, setPaymentOption] = useState("COD");
 
     const getCart = () => {
@@ -23,7 +24,56 @@ const Cart = () => {
         setCartArray(tempArray);
     }
 
+    const getUserAddress = async () => {
+
+        try{
+
+            const {data} = await axios.get('/api/address/get');
+            if (data.success){
+                setAddresses(data.addresses);
+                if(data.addresses.length > 0){
+                    setSelectedAddress(data.addresses[0])
+                }
+            } else {
+                toast.error(data.message);
+            }
+
+        } catch(error){
+                toast.error(error.message);
+        }
+
+    }
+
+
     const placeOrder = async () => {
+          
+        try{
+            if(!selectedAddress){
+                return toast.error("Please, select your address");
+            }
+
+            //place order with COD
+            if(paymentOption === "COD"){
+
+
+                const {data} = await axios.post('/api/order/cod',{
+                    userId:user._id,
+                    items:cartArray.map(item => ({product:item._id , quantity:item.quantity})),
+                    address:selectedAddress._id
+                })
+                console.log(data);
+                if(data.success){
+                    toast.success(data.message);
+                    setCartItems({});
+                    navigate('/my-orders');
+                } else {
+                    toast.error("jbSHDBISADSABJASB");
+                }
+            }
+            
+        } catch (error) {
+                toast.error(error.message);
+        }
         
     }
 
@@ -32,6 +82,12 @@ const Cart = () => {
             getCart();
         }
     },[products,cartItems])
+
+    useEffect(() => {
+        if(user){
+            getUserAddress();
+        }
+    }, [user]);
 
 
 
@@ -62,7 +118,7 @@ const Cart = () => {
                                             <p>Weight: <span>{product.weight || "N/A"}</span></p>
                                             <div className='flex items-center'>
                                                 <p>Qty:</p>
-                                                <select 
+                                                <select
                                                     value={product.quantity}
                                                     onChange={(e) => updateCartItems(product._id, parseInt(e.target.value))}
                                                     className='outline-none'
@@ -104,7 +160,7 @@ const Cart = () => {
                                 {showAddress && (
                                     <div className="absolute top-12 py-1 bg-white border border-gray-300 text-sm w-full">
                                         {addresses.map((address, index) => (
-                                            <p 
+                                            <p
                                                 key={index}
                                                 onClick={() => {
                                                     setSelectedAddress(address);
@@ -155,8 +211,8 @@ const Cart = () => {
             ) : (
                 <div className="flex flex-col items-center justify-center h-[60vh]">
                     <p className="text-2xl font-medium text-primary">Your Cart is Empty</p>
-                    <button 
-                        onClick={() => navigate('/products')} 
+                    <button
+                        onClick={() => navigate('/products')}
                         className="mt-4 px-6 py-2 bg-primary text-white rounded hover:bg-primary-dull"
                     >
                         Continue Shopping

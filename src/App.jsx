@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
-import {Route, Routes, useLocation} from "react-router-dom";
-import {Toaster} from "react-hot-toast";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer.jsx";
-import {useAppContext} from "./context/AppContext.jsx";
+import { useAppContext } from "./context/AppContext.jsx";
 import Login from "./components/Login.jsx";
 import AllProducts from "./pages/AllProducts.jsx";
 import ProductCategory from "./pages/ProductCategory.jsx";
@@ -20,9 +20,31 @@ import Orders from "./pages/admin/Orders.jsx";
 import Contact from "./pages/Contact.jsx";
 
 const App = () => {
-
     const isSellerPath = useLocation().pathname.includes("admin");
-    const {showUserLogin,isSeller} = useAppContext();
+    const { showUserLogin, isSeller, isSellerLoading, fetchSellers } = useAppContext();
+
+    useEffect(() => {
+        // Check authentication status only once when app loads
+        if (isSellerLoading) {
+            fetchSellers();
+        }
+    }, [isSellerLoading, fetchSellers]);
+
+    // Protected route component for admin routes
+    const ProtectedAdminRoute = ({ children }) => {
+        // If still checking authentication status, show a loading spinner
+        if (isSellerLoading) {
+            return <div className="flex items-center justify-center h-screen">Loading...</div>;
+        }
+
+        // If not authenticated, redirect to login
+        if (!isSeller) {
+            return <Navigate to="/admin/login" />;
+        }
+
+        // If authenticated, render the children
+        return children;
+    };
 
     return (
         <div className="text-default min-h-screen text-gray-700 bg-white">
@@ -30,7 +52,7 @@ const App = () => {
             {showUserLogin ? <Login /> : null}
 
             <Toaster />
-            <div className={`${isSellerPath ? "":  "px-6 md:px-16 lg:px-24 xl:px-32"}`}>
+            <div className={`${isSellerPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<AllProducts />} />
@@ -40,20 +62,23 @@ const App = () => {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/add-address" element={<AddAddress />} />
                     <Route path="/my-orders" element={<MyOrders />} />
-                    <Route path="/admin" element={isSeller ? <AdminLayout/> : <SellerLogin/>}>
-                        <Route index element={isSeller ? <AddProduct /> : null} />
-                        <Route path="product-list"  element={<ProductList />} />
-                        <Route path="orders"  element={<Orders />} />
+
+                    {/* Admin routes */}
+                    <Route path="/admin/login" element={<SellerLogin />} />
+                    <Route path="/admin" element={
+                        <ProtectedAdminRoute>
+                            <AdminLayout />
+                        </ProtectedAdminRoute>
+                    }>
+                        <Route index element={<AddProduct />} />
+                        <Route path="product-list" element={<ProductList />} />
+                        <Route path="orders" element={<Orders />} />
                     </Route>
-
-
-
                 </Routes>
             </div>
             {!isSellerPath && <Footer />}
-
         </div>
+    );
+};
 
-    )
-}
 export default App;
