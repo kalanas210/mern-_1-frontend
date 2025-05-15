@@ -69,6 +69,7 @@ import vanilla_muffins_image from "./vanilla_muffins_image.png";
 import quinoa_image from "./quinoa_image.png";
 import brown_rice_image from "./brown_rice_image.png";
 import barley_image from "./barley_image.png";
+import laptop from "./laptop.png";
 
 export const assets = {
   logo,
@@ -102,44 +103,44 @@ export const assets = {
 
 export const categories = [
   {
-    text: "Organic veggies",
-    path: "Vegetables",
-    image: organic_vegitable_image,
+    text: "Laptop and Tablet",
+    path: "Laptop",
+    image: laptop,
     bgColor: "#FEF6DA",
   },
   {
-    text: "Fresh Fruits",
-    path: "Fruits",
+    text: "Smartphone",
+    path: "Smartphone",
     image: fresh_fruits_image,
     bgColor: "#FEE0E0",
   },
   {
-    text: "Cold Drinks",
-    path: "Drinks",
+    text: "Speaker",
+    path: "Speaker",
     image: bottles_image,
     bgColor: "#F0F5DE",
   },
   {
-    text: "Instant Food",
-    path: "Instant",
+    text: "Headphone",
+    path: "Headphone",
     image: maggi_image,
     bgColor: "#E1F5EC",
   },
   {
-    text: "Dairy Products",
-    path: "Dairy",
+    text: "Smart Watch",
+    path: "Smartwatch",
     image: dairy_product_image,
     bgColor: "#FEE6CD",
   },
   {
-    text: "Bakery & Breads",
-    path: "Bakery",
+    text: "Camera",
+    path: "Camera",
     image: bakery_image,
     bgColor: "#E0F6FE",
   },
   {
-    text: "Grains & Cereals",
-    path: "Grains",
+    text: "Other",
+    path: "Other",
     image: grain_image,
     bgColor: "#F1E3F9",
   },
@@ -205,7 +206,7 @@ export const dummyProducts = [
   {
     _id: "gd46g23h",
     name: "Potato 500g",
-    category: "Vegetables",
+    category: "Laptop",
     price: 25,
     rating:3,
     offerPrice: 20,

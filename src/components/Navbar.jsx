@@ -2,14 +2,26 @@ import React, {useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import {useAppContext} from "../context/AppContext.jsx";
 import {assets} from "../assets/assets.js";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false)
-    const {user,setUser,setShowUserLogin,navigate,setSearchQuery,searchQuery,getCartCount} = useAppContext();
+    const {user,setUser,setShowUserLogin,navigate,setSearchQuery,searchQuery,getCartCount,axios} = useAppContext();
+
     const logout = async () => {
-        setUser(null);
-        navigate("/");
+        try{
+            const {data} = await axios.get('/api/user/logout');
+            if(data.success){
+                toast.success(data.message)
+                setUser(null);
+                navigate("/");
+            } else {
+                toast.error(data.message)
+            }
+        } catch(error){
+                toast.error(error.message)
+        }
     }
     useEffect(() => {
         if(searchQuery.length > 0){
@@ -76,7 +88,7 @@ const Navbar = () => {
                         <NavLink to='/' onClick={()=>setOpen(false)}>Home</NavLink>
                         <NavLink to='/products' onClick={()=>setOpen(false)}>Products</NavLink>
                         {user &&
-                            <NavLink to='/orders' onClick={()=>setOpen(false)}>My Orders</NavLink>
+                            <NavLink to='/my-orders' onClick={()=>setOpen(false)}>My Orders</NavLink>
                         }
                         <NavLink to='/contact' onClick={()=>setOpen(false)}>Contact</NavLink>
                         {!user ?
