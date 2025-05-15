@@ -1,6 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useAppContext} from "../../context/AppContext.jsx";
 import {assets, dummyOrders} from "../../assets/assets.js";
+import axios from "axios";
+import toast from "react-hot-toast";
+import {data} from "react-router-dom";
 
 const Orders = () => {
 
@@ -8,7 +11,17 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
 
     const fetchOrders = async () => {
-        setOrders(dummyOrders);
+        try{
+            const {data} = await axios.get('/api/order/admin');
+            if(data.success){
+                setOrders(data.orders);
+            } else {
+                toast.error(data.message);
+            }
+        } catch(error){
+                console.log(error);
+                toast.error(error.message);
+        }
     }
     useEffect(() => {
         fetchOrders();
