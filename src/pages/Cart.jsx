@@ -69,6 +69,19 @@ const Cart = () => {
                 } else {
                     toast.error("jbSHDBISADSABJASB");
                 }
+            } else {
+                const {data} = await axios.post('/api/order/stripe',{
+                    userId:user._id,
+                    items:cartArray.map(item => ({product:item._id , quantity:item.quantity})),
+                    address:selectedAddress._id
+                })
+                console.log(data);
+                if(data.success){
+                    window.location.replace(data.url);
+                    toast.success(data.message);
+                } else {
+                    toast.error("jbSHDBISADSABJASB");
+                }
             }
             
         } catch (error) {
