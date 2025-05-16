@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useAppContext} from "../context/AppContext.jsx";
-import {assets} from "../assets/assets.js";
 import toast from "react-hot-toast";
+import {assets} from "../assets/assets.js";
 
 const InputField = ({type, placeholder, name, handleChange, address, className}) => (
     <div className={className}>
@@ -111,7 +111,7 @@ const AddAddress = () => {
                         </div>
                     </form>
                 </div>
-                <img className="md:mr-16 mb-16 md:mb-0" src={assets.add_address_iamge} alt='add address' />
+                <img className="w-1/3 h-1/2 md:mr-16 mb-16 md:mb-0" src={assets.add_address_image} alt='add address' />
             </div>
         </div>
     );

@@ -33,7 +33,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
 
             <NavLink to='/' onClick={()=>setOpen(false)}>
-                <img className="h-10" src='../assets/logo.png' alt="GizmoLK Logo" />
+                <img className="h-10" src={assets.logo} alt="GizmoLK Logo" />
             </NavLink>
 
             {/* Desktop Menu */}
@@ -44,7 +44,7 @@ const Navbar = () => {
 
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
                     <input onChange={(e)=>setSearchQuery(e.target.value)} className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
-                    <img src='../assets/search_icon.svg' alt="Search Icon" className="h-5 w-5" />
+                    <img src={assets.search_icon} alt="Search Icon" className="h-5 w-5" />
                 </div>
 
                 <div onClick={()=> navigate('/cart')} className="relative cursor-pointer">

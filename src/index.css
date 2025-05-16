@@ -4,8 +4,8 @@
     font-family: "Outfit", sans-serif;
 }
 @theme{
-    --color-primary: #ff7f00;
-    --color-primary-dull: #c66205;
+    --color-primary: #ff0062;
+    --color-primary-dull: #a6045a;
 }
 
 .no-scrollbar::-webkit-scrollbar {

@@ -70,12 +70,12 @@ const ProductDetails = () => {
                         {Array(5).fill('').map((_, i) => (
                             <img
                                 key={i}
-                                src={i < product.rating ? assets.star_icon : assets.star_dull_icon}
+                                src={i < 4 ? assets.star_icon : assets.star_dull_icon}
                                 alt="star"
                                 className='md:w-4 w-3.5'
                             />
                         ))}
-                        <p className="text-base ml-2">({product.rating})</p>
+                        <p className="text-base ml-2">4</p>
                     </div>
 
                     <div className="mt-6">
@@ -115,9 +115,9 @@ const ProductDetails = () => {
                     <div className='w-20 h-0.5 bg-primary rounded-full mt-2'></div>
                 </div>
             </div>
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-5 lg:grid-cols-5 mt-6'>
-                {relatedProducts.map((product, index) => (
-                    index < 5 && product.inStock && <ProductCard key={product._id} product={product}/>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5 mt-6'>
+                {relatedProducts.map((product) => (
+                    <ProductCard key={product._id} product={product}/>
                 ))}
             </div>
             <div className="flex justify-center w-full">

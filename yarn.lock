@@ -1142,6 +1142,15 @@ form-data@^4.0.0:
     es-set-tostringtag "^2.1.0"
     mime-types "^2.1.12"
 
+framer-motion@^12.11.4:
+  version "12.11.4"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.11.4.tgz#a6df0afd56def01038a1d8f9241b010c761b9b1b"
+  integrity sha512-kyE5oWZCUxhDb7LtpEyyadNThJJvoE8a6bfUTBqz++zw3XxDOosPAvw1lqNhYbjOgy57YuAlJ5qG/Cx5BigiEQ==
+  dependencies:
+    motion-dom "^12.11.4"
+    motion-utils "^12.9.4"
+    tslib "^2.4.0"
+
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
@@ -1444,6 +1453,26 @@ minimatch@^3.1.2:
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
+
+motion-dom@^12.11.4:
+  version "12.11.4"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.11.4.tgz#5826919155057a31655aff822da0b5ca8b003dad"
+  integrity sha512-1z/qYsrDjSx5QjOH8GfJ2RfFBvEzI2gdAEt2zNW+f7QkLlqjM3sQieESJr5+QtVmvD81qPANM7t97ROixKIt9Q==
+  dependencies:
+    motion-utils "^12.9.4"
+
+motion-utils@^12.9.4:
+  version "12.9.4"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.9.4.tgz#9d5a45a19971e20059911526d7af2217c5158fa2"
+  integrity sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==
+
+motion@^12.11.4:
+  version "12.11.4"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-12.11.4.tgz#3767e9ffd9f87022810317aaff77500e081099bf"
+  integrity sha512-1UnHgj/GBJ3NmLKSQFYJBCh5qOZYGUdoTZWk0N8rWrrCUfsNMTzSlhaaS3t3QdBwTTi3jWoT9iW7UciqvIxRpQ==
+  dependencies:
+    framer-motion "^12.11.4"
+    tslib "^2.4.0"
 
 ms@^2.1.3:
   version "2.1.3"

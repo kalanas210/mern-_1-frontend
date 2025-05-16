@@ -5,7 +5,7 @@ const BottomBanner = () => {
     return (
         <div className='relative mt-24'>
             <img src={assets.bottom_banner_image} alt='banner' className='w-full hidden md:block'/>
-            <img src={assets.bottom_banner_image_sm} alt='banner' className='w-full md:hidden mb-4'/>
+            <img src={assets.bottom_banner_image_sm} alt='banner' className='w-full md:hidden mb-4 rounded-lg'/>
 
             <div className='absolute inset-0 flex flex-col items-center md:justify-center md:items-end pt-16 md:pt-0 md:pr-24'>
                 <div>

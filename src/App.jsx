@@ -19,7 +19,10 @@ import ProductList from "./pages/admin/ProductList.jsx";
 import Orders from "./pages/admin/Orders.jsx";
 import Contact from "./pages/Contact.jsx";
 import Loading from "./components/Loading.jsx";
-
+import OverlayAd from "./components/OverlayAd.jsx";
+import {assets} from "./assets/assets.js";
+// Import the CSS file (you need to create this file in your src directory)
+import './components/animations.css'
 const App = () => {
     const isSellerPath = useLocation().pathname.includes("admin");
     const { showUserLogin, isSeller, isSellerLoading, fetchSellers } = useAppContext();
@@ -29,6 +32,31 @@ const App = () => {
         if (isSellerLoading) {
             fetchSellers();
         }
+
+        // Simple scroll animation without custom components
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.scroll-animate');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('animate-visible');
+                }
+            });
+        };
+
+        // Initial check
+        setTimeout(animateOnScroll, 100);
+
+        // Add scroll listener
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Cleanup
+        return () => {
+            window.removeEventListener('scroll', animateOnScroll);
+        };
     }, [isSellerLoading, fetchSellers]);
 
     // Protected route component for admin routes
@@ -51,6 +79,19 @@ const App = () => {
         <div className="text-default min-h-screen text-gray-700 bg-white">
             {isSellerPath ? null : <Navbar />}
             {showUserLogin ? <Login /> : null}
+
+            {/* Add the OverlayAd component with custom props */}
+            {!isSellerPath && (
+                <OverlayAd
+                    imageUrl={assets.ad_image}
+                    link="/products/special-offer"
+                    position="bottom-right"
+                    width={320}
+                    scrollThreshold={300}
+                    showOnce={false}
+                    delay={500}
+                />
+            )}
 
             <Toaster />
             <div className={`${isSellerPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}>
